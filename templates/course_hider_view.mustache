@@ -28,7 +28,7 @@
     <form method="POST" id="course_hider_courses_selected">
     <table class="table table-hover table-striped sample_table">
         {{# show_count}}
-        <caption>Number of courses: {{course_count}}</caption>
+        <caption>Number Of Courses: {{course_count}}</caption>
         {{/ show_count}}
         <thead>
             <tr>
@@ -36,7 +36,6 @@
                 <th>{{# str }} ch_heading_fullname, block_course_hider {{/ str }}</th>
                 <!-- <th>{{# str }} ch_heading_shortname, block_course_hider {{/ str }}</th> -->
                 <th>{{# str }} ch_heading_visible, block_course_hider {{/ str }}</th>
-                <th>{{# str }} ch_heading_locked, block_course_hider {{/ str }}</th>
                 <th>{{# str }} ch_heading_check, block_course_hider {{/ str }}
                     <input type="checkbox" id="course_hider_all" checked>
                 </th>
@@ -49,9 +48,8 @@
                 <td>{{id}}</td>
                 <td><a href="{{ch_url}}/course/view.php?id={{id}}" target="_blank">{{fullname}}</a></td>
                 <td>{{visible}}</td>
-                <td>{{locked}}</td>
                 <td>
-                    <input class="course_hider_toggle" type="checkbox" name="course_{{id}}" value='{{id}}' checked>
+                    <input class="course_hider_toggle" data-action="block_course_hider/course_selector" type="checkbox" name="course_{{id}}" value='{{id}}' checked>
                 </td>
             </tr>
             {{/ courses }}

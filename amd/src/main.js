@@ -65,11 +65,7 @@ export const init = () => {
         form.addEventListener('submit', (event) => {
             event.preventDefault(); // prevent the default form submission
 
-            // Let's get the lock value
-            const lock = document.getElementById('id_lockcourses');
-            const selected_lock = lock.options[lock.selectedIndex];
-            const selectedLockValue = selected_lock.value;
-
+            // Let's get the hide value
             const hide = document.getElementById('id_hidecourses');
             const selected_hide = lock.options[hide.selectedIndex];
             const selectedHideValue = selected_hide.value;
@@ -79,7 +75,6 @@ export const init = () => {
             const inputValues = [];
 
             formData.append("btnexecute", true);
-            formData.append("lock", selectedLockValue);
             formData.append("hide", selectedHideValue);
             inputs.forEach((input) => {
                 if (input.checked) {
@@ -92,11 +87,12 @@ export const init = () => {
             // Resubmit the form
             const xhr = new XMLHttpRequest();
             xhr.open("POST", form.action, true);
+            xhr.responseType = "document";
             xhr.send(formData);
 
             xhr.onload = function() {
-                document.body.innerHTML = xhr.responseText;
-                window.console.log(xhr.responseText);
+                document.body.getElementsByClassName('block_course_hider_container')[0].innerHTML =
+                    xhr.responseXML.body.getElementsByClassName('block_course_hider_container')[0].innerHTML;
             };
         });
     }

@@ -57,16 +57,11 @@ if (isset($pageparams['vpreview']) && $pageparams['vpreview'] == 1) {
 
 $results = null;
 
-if ( isset($_REQUEST['btnexecute']) && (int)$_REQUEST['btnexecute'] = 1) {
-    error_log("\n Yup, going through here");
+if ( isset($_REQUEST['btnexecute'])) {
     $pageparams['btnexecute'] = true;
-    $rhide = isset($_REQUEST['hide']) ? (int)$_REQUEST['hide'] : 2;
-    $rlock = isset($_REQUEST['lock']) ? (int)$_REQUEST['lock'] : 2;
-    $rcourses = isset($_REQUEST['courses']) ? $_REQUEST['courses'] : '';
     $results = (object) array(
-        "courses" => $rcourses,
-        "lock" => $rlock,
-        "hide" => $rhide
+        "courses" => $_REQUEST['courses'],
+        "hide" => (int)$_REQUEST['hide']
     );
 }
 // ------------------------------------------------------------------------

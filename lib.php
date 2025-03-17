@@ -83,19 +83,25 @@ class course_hider_helpers {
     }
 
     public static function getYears() {
-        $years = get_config('moodle', "block_course_hider_form_years");
-        $range = explode('-', $years);
+        global $DB;
+
+        $periodyearsql = "SELECT per.period_year
+            FROM {enrol_wds_periods} per
+            GROUP BY per.period_year";
+
+        $wantedyears = get_config('moodle', "block_course_hider_form_years");
+        $range = explode('-', $wantedyears);
+
+        $periodyears = $DB->get_records_sql($periodyearsql);
         $years = array();
-        if (empty($range)) {
-            mtrace("There is something wrong with the exploding of years");
-        } else {
-            $start = (int)$range[0];
-            $end = (int)$range[1];
-            $years = array();
-            for ($i = $start; $i <= $end; $i++) {
-                $years[] = $i;
+        
+        foreach($periodyears as $periodyear) {
+            if ($range[0] <= $periodyear->period_year && 
+                $range[1] >= $periodyear->period_year) {
+                $years[] = $periodyear->period_year;
             }
         }
+
         return $years;
     }
     public static function getSemesterType() {
@@ -105,8 +111,20 @@ class course_hider_helpers {
         return $semestertypes;
     }
     public static function getSemester() {
-        $semesterstr = get_config('moodle', "block_course_hider_form_semester");
-        $semesters = explode(',', $semesterstr);
+        global $DB;
+
+        $periodtypesql = "SELECT per.period_type
+            FROM {enrol_wds_periods} per
+            GROUP BY per.period_type";
+
+        $periodtypes = $DB->get_records_sql($periodtypesql);
+
+        $semesters = array();
+
+        foreach ($periodtypes as $period) {
+            $semesters[] = $period->period_type;
+        }
+
         return $semesters;
     }
     public static function getSemesterSection() {

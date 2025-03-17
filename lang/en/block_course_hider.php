@@ -61,26 +61,26 @@ $string['formeerror'] = 'Error: Something went terribly wrong!';
 $string['years'] = 'Range of Years.';
 $string['yearsdesc'] = 'This is the range of years to show in the drop down box, for ex: 2020-2030';
 
-$string['semestertype'] = 'Type of semester.';
+$string['semestertype'] = 'Type Of Semester.';
 $string['semestertypedesc'] = 'Comma seperated list of the different types of semester types. Ex: First,Second';
 
-$string['semester'] = 'Choose a semester.';
+$string['semester'] = 'Choose A Semester.';
 $string['semesterdesc'] = 'Comma seperated list of the different semesters. Ex: Spring,Summer,Fall';
 
 $string['semestersection'] = 'Semester Section.';
 $string['semestersectiondesc'] = 'Comma seperated list of the different types of semester sections. Ex: Spring,Summer,Fall';
 
-$string['hiddenonly'] = 'Preview hidden';
-$string['lockedonly'] = 'Preview locked';
-$string['lockcourses'] = 'Lock courses';
+$string['hiddenonly'] = 'Preview Hidden';
+$string['lockedonly'] = 'Preview Locked';
+$string['lockcourses'] = 'Lock Courses';
 
-$string['defaultyear'] = 'Choose a year';
+$string['defaultyear'] = 'Choose A Year';
 $string['defaultyear2'] = 'Year';
-$string['defaultsemester'] = 'Choose a semester';
+$string['defaultsemester'] = 'Choose A Semester';
 $string['defaultsemester2'] = 'Semester';
-$string['defaultsemestertype'] = 'Choose a type';
+$string['defaultsemestertype'] = 'Choose A Type';
 $string['defaultsemestertype2'] = 'Type';
-$string['defaultsemestersection'] = 'Choose a session';
+$string['defaultsemestersection'] = 'Choose A Session';
 $string['defaultsemestersection2'] = 'Session';
 
 $string['raw_input'] = 'Raw Text';
